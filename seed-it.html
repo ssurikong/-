@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SEED IT — 공급망 운영사</title>
+<meta name="description" content="SEED IT은 고객사 기준에 맞춰 입고부터 출고까지 공급망을 운영합니다." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body class="no-hero">
+
+<div id="site-header" class="site-header"></div>
+<div class="mobile-panel" id="mobilePanel"></div>
+
+<!-- ══════════ 1. 공급망 운영사, SEED IT ══════════ -->
+<!-- IMAGE: ../V2_deploy/assets/images/homepage/infrastructure-warehouse-01.jpg — 실사, 물류센터 내부, 사람/브랜드 노출 없음 확인됨 -->
+<section class="sub-hero">
+  <div class="hero-media">
+    <img src="../../V2_deploy/assets/images/homepage/infrastructure-warehouse-01.jpg" alt="물류센터 내부 운영 현장" />
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">SEED IT</p>
+    <h1>공급망 운영사, SEED IT</h1>
+    <p class="hero-copy">고객사 기준에 맞춰 수급, 검수, 선별, 포장, 라벨, 출고를 운영합니다.</p>
+  </div>
+</section>
+
+<!-- ══════════ 2. 고객사 기준에 맞춰 운영합니다 ══════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <!-- IMAGE: ../V2_deploy/assets/images/homepage/operations-sorting-01.jpg — 위생모·마스크 착용 확인됨 -->
+      <div class="split-media reveal">
+        <img src="../../V2_deploy/assets/images/homepage/operations-sorting-01.jpg" alt="위생모·마스크를 착용하고 진행하는 선별 작업" />
+      </div>
+      <div class="reveal d1">
+        <p class="eyebrow" style="color:var(--muted);">Operating Standard</p>
+        <h2>고객사 기준에 맞춰<br />운영합니다.</h2>
+        <p class="section-sub">온도, 시간, 품질 편차, 로스, 클레임이 발생하는 원물 현장에서 운영 경험을 쌓았습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 3. 입고부터 출고까지 (세로/대각선 zigzag flow) ══════════ -->
+<section class="section soft">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px;">
+      <p class="eyebrow" style="color:var(--muted);">Operation Scope</p>
+      <h2>입고부터 출고까지 운영합니다.</h2>
+    </div>
+    <div class="zigzag-flow" id="zigzagScope">
+      <div class="zigzag-line"><div class="zigzag-line-fill"></div></div>
+      <div class="zigzag-row">
+        <p class="zigzag-label side-left" style="--i:0">입고</p>
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:0"></div></div>
+      </div>
+      <div class="zigzag-row">
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:1"></div></div>
+        <p class="zigzag-label side-right" style="--i:1">검수</p>
+      </div>
+      <div class="zigzag-row">
+        <p class="zigzag-label side-left" style="--i:2">선별</p>
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:2"></div></div>
+      </div>
+      <div class="zigzag-row">
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:3"></div></div>
+        <p class="zigzag-label side-right" style="--i:3">소분</p>
+      </div>
+      <div class="zigzag-row">
+        <p class="zigzag-label side-left" style="--i:4">포장</p>
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:4"></div></div>
+      </div>
+      <div class="zigzag-row">
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:5"></div></div>
+        <p class="zigzag-label side-right" style="--i:5">라벨</p>
+      </div>
+      <div class="zigzag-row">
+        <p class="zigzag-label side-left" style="--i:6">출고</p>
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:6"></div></div>
+      </div>
+      <div class="zigzag-row">
+        <div class="zigzag-dot-col"><div class="zigzag-dot" style="--i:7"></div></div>
+        <p class="zigzag-label side-right" style="--i:7">대응</p>
+      </div>
+    </div>
+    <p class="micro-caption reveal" style="text-align:center;">주요 운영 품목은 양상추, 대파, 감자, 당근 등이며, 품목별 기준에 맞춰 운영합니다.</p>
+    <div class="micro-tags reveal" style="justify-content:center;">
+      <span class="micro-tag">급식</span>
+      <span class="micro-tag">식품 제조</span>
+      <span class="micro-tag">전처리</span>
+      <span class="micro-tag">도시락·샐러드·김밥·반찬</span>
+      <span class="micro-tag">유통·물류 파트너</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 4. 고객사 기준을 현장 작업으로 옮깁니다 (기준 체크 패널, 플로우 반복 없음) ══════════ -->
+<section class="section soft">
+  <div class="wrap">
+    <div class="criteria-panel">
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--muted);">Operating Standard</p>
+        <h2>고객사 기준을<br />현장 작업으로 옮깁니다.</h2>
+        <p class="section-sub">품질, 수량, 라벨, 출고 시간을<br />작업 기준으로 확인합니다.</p>
+      </div>
+      <div class="criteria-list stagger" id="criteriaGroup">
+        <div class="criteria-item" style="--i:0"><span class="criteria-num">01</span><span class="criteria-label">품질 기준 확인</span></div>
+        <div class="criteria-item" style="--i:1"><span class="criteria-num">02</span><span class="criteria-label">수량 기준 확인</span></div>
+        <div class="criteria-item" style="--i:2"><span class="criteria-num">03</span><span class="criteria-label">라벨 기준 확인</span></div>
+        <div class="criteria-item" style="--i:3"><span class="criteria-num">04</span><span class="criteria-label">출고 시간 확인</span></div>
+        <div class="criteria-item" style="--i:4"><span class="criteria-num">05</span><span class="criteria-label">이슈 대응 기록</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 5. CTA (제목 없이 문장+버튼만) ══════════ -->
+<section class="cta-light reveal">
+  <div class="wrap">
+    <p>운영역량 페이지에서 실행 기준을 확인할 수 있습니다.</p>
+    <div class="hero-actions" style="justify-content:center;margin-top:22px;">
+      <a href="operations.html" class="btn btn-dark">운영역량 보기</a>
+      <a href="operations.html#contact" class="btn btn-line">문의하기</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer" class="footer"></div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

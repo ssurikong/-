@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SEED IT — 품질을 관리하고, 공급망을 운영합니다</title>
+<meta name="description" content="산지 수급, 품질관리, 생산, 물류 — SEED IT은 공급망 전 과정을 운영합니다." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<div id="site-header" class="site-header"></div>
+<div class="mobile-panel" id="mobilePanel"></div>
+
+<!-- ══════════ 1. HERO (실사 영상, V2_deploy 현행 히어로 영상 재사용) ══════════ -->
+<!-- VIDEO: ../V2_deploy/assets/videos/hero-forest-road-stabilized.mp4 (desktop, 1920x1080·10s·9.3MB) / hero-forest-road-stabilized-mobile.mp4 (mobile, 1280x720·10s·5.1MB) — V2_deploy 01_메인_v1.html이 실제 사용 중인 히어로 영상, poster는 hero-forest-road-poster.jpg -->
+<section class="hero" data-nav-theme="dark">
+  <div class="hero-media">
+    <video id="heroVideo" autoplay muted loop playsinline preload="auto"
+      src="hero-forest-road-stabilized-mobile.mp4"></video>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">Supply Chain Operations</p>
+    <h1><span class="ln">품질을 관리하고,</span><span class="ln">공급망을 운영합니다.</span></h1>
+    <p class="hero-copy">원물 수급부터 선별·포장·라벨·출고까지<br />고객사 기준에 맞춰 현장에서 실행합니다.</p>
+    <div class="hero-actions">
+      <a href="assets/seedit-company-profile.pdf" class="btn btn-white" download>회사소개서 다운로드</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 2. 핵심 역할 ══════════ -->
+<section class="impact" data-nav-theme="light">
+  <div class="wrap">
+    <h2 class="reveal-tracking"><span>공급망 운영,</span> <span style="font-weight:300;">그 자체입니다.</span></h2>
+    <p class="section-sub reveal" style="margin:18px auto 0;text-align:center;">품질, 수량, 라벨, 출고 시간을 현장에서 확인합니다.</p>
+    <div class="reveal" style="margin-top:32px;">
+      <a href="about.html" class="btn btn-dark">자세히 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 3. 운영 흐름 ══════════ -->
+<section class="section soft" id="flow" data-nav-theme="light">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:center;">
+
+      <!-- 왼쪽: 텍스트 -->
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--muted);">Operation Flow</p>
+        <h2>산지부터 출고까지,<br />하나의 흐름으로.</h2>
+        <p class="section-sub">원물 수급, 선별, 포장, 출고까지<br />고객사 기준에 맞춰 현장에서 실행합니다.</p>
+        <div style="margin-top:28px;">
+          <a href="operations.html#timeflow" class="btn btn-dark">자세히 보기</a>
+        </div>
+      </div>
+
+      <!-- 오른쪽: Supply Chain Flow 패널 -->
+      <div class="reveal d1">
+        <div style="background:linear-gradient(158deg,#23251f,#2d302b 55%,#3a3d35 100%);border-radius:20px;padding:36px 32px 32px;position:relative;overflow:hidden;">
+          <p style="font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;color:rgba(255,255,255,.35);text-align:center;margin-bottom:28px;text-transform:uppercase;">Supply Chain Flow</p>
+          <!-- SVG Flow -->
+          <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+            <defs>
+              <marker id="scArr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M0 2L7.5 5L0 8" fill="none" stroke="rgba(111,125,104,.7)" stroke-width="1.6" stroke-linecap="round"/>
+              </marker>
+            </defs>
+            <g transform="translate(22,0)">
+            <!-- 연결선: 각 원 우측에서 다음 원 좌측까지 -->
+            <line x1="81" y1="56" x2="111" y2="56" stroke="rgba(111,125,104,.5)" stroke-width="1.4" marker-end="url(#scArr)"/>
+            <line x1="189" y1="56" x2="219" y2="56" stroke="rgba(111,125,104,.5)" stroke-width="1.4" marker-end="url(#scArr)"/>
+            <line x1="297" y1="56" x2="327" y2="56" stroke="rgba(111,125,104,.5)" stroke-width="1.4" marker-end="url(#scArr)"/>
+            <line x1="405" y1="56" x2="435" y2="56" stroke="rgba(111,125,104,.5)" stroke-width="1.4" marker-end="url(#scArr)"/>
+            <!-- 노드 원 -->
+            <circle cx="42" cy="56" r="34" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/>
+            <circle cx="150" cy="56" r="34" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/>
+            <circle cx="258" cy="56" r="34" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/>
+            <circle cx="366" cy="56" r="34" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/>
+            <circle cx="474" cy="56" r="34" fill="rgba(111,125,104,.28)" stroke="rgba(111,125,104,.7)" stroke-width="1.8"/>
+            <!-- 한글 레이블 (원 안) -->
+            <text x="42"  y="51" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="15" font-weight="700" fill="#ffffff">산지</text>
+            <text x="150" y="51" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="15" font-weight="700" fill="#ffffff">선별</text>
+            <text x="258" y="51" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="15" font-weight="700" fill="#ffffff">가공</text>
+            <text x="366" y="51" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="15" font-weight="700" fill="#ffffff">물류</text>
+            <text x="474" y="51" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="15" font-weight="800" fill="#ffffff">납품</text>
+            <!-- 영문 서브 (원 안) -->
+            <text x="42"  y="66" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="500" fill="rgba(255,255,255,.48)" letter-spacing="0.5">Origin</text>
+            <text x="150" y="66" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="500" fill="rgba(255,255,255,.48)" letter-spacing="0.5">Sorting</text>
+            <text x="258" y="66" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="500" fill="rgba(255,255,255,.48)" letter-spacing="0.5">Processing</text>
+            <text x="366" y="66" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="500" fill="rgba(255,255,255,.48)" letter-spacing="0.5">Logistics</text>
+            <text x="474" y="66" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" font-weight="500" fill="rgba(255,255,255,.65)" letter-spacing="0.5">Delivery</text>
+            <!-- 하단 설명 텍스트 -->
+            <text x="42"  y="112" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="rgba(255,255,255,.42)">전국 직거래</text>
+            <text x="150" y="112" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="rgba(255,255,255,.42)">규격 검수</text>
+            <text x="258" y="112" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="rgba(255,255,255,.42)">포장·라벨링</text>
+            <text x="366" y="112" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11" fill="rgba(255,255,255,.42)">재고·배송</text>
+            <text x="474" y="112" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="11.5" font-weight="700" fill="rgba(111,125,104,.9)">당일 납기</text>
+            <!-- 흐르는 점 애니메이션 -->
+            <circle r="3.5" fill="rgba(111,125,104,.95)">
+              <animateMotion dur="4s" repeatCount="indefinite"
+                path="M42 56 L150 56 L258 56 L366 56 L474 56"/>
+              <animate attributeName="opacity" values="0;1;1;1;1;0" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 4. 거점 네트워크 ══════════ -->
+<section class="section" id="network" data-nav-theme="light">
+  <div class="wrap">
+    <div class="hub">
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--muted);">Network</p>
+        <h2>용인·평택<br />거점 운영</h2>
+        <div class="hub-copy">
+          <p>냉장·냉동·상온 대응 인프라를 활용해<br />수도권 공급망에 대응합니다.</p>
+          <div class="hub-tags">
+            <span class="hub-tag">용인 거점</span>
+            <span class="hub-tag">평택 거점</span>
+            <span class="hub-tag">수도권 출고 대응</span>
+            <div style="width:100%;"></div>
+            <span class="hub-tag">냉장·냉동·상온</span>
+            <span class="hub-tag">콜드체인 대응</span>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="operations.html#temperature" class="btn btn-dark">자세히 보기</a>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <div class="hub-map-wrap">
+          <svg viewBox="-90 -70 700 530" width="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="netRg1" cx="50%" cy="50%" r="55%">
+                <stop offset="0%" stop-color="rgba(222,222,222,.10)"/>
+                <stop offset="100%" stop-color="rgba(230,230,230,0)"/>
+              </radialGradient>
+              <marker id="netArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="rgba(186,186,186,.55)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <!-- 배경 글로우 -->
+            <circle cx="310" cy="190" r="150" fill="url(#netRg1)"/>
+            <!-- 한국 윤곽 블롭 -->
+            <g transform="translate(-51,-68)">
+              <path d="M 245.0 50.0
+Q 270 45 287.5 37.5 Q 305 30 317.5 42.5 Q 330 55 347.5 52.5 Q 365 50 380.0 60.0
+Q 395 70 417.5 67.5 Q 440 65 460.0 72.5 Q 480 80 495.0 77.5 Q 510 75 527.5 85.0
+Q 545 95 560.0 112.5 Q 575 130 587.5 147.5 Q 600 165 607.5 182.5 Q 615 200 607.5 217.5
+Q 600 235 607.5 252.5 Q 615 270 605.0 287.5 Q 595 305 600.0 322.5 Q 605 340 590.0 352.5
+Q 575 365 577.5 382.5 Q 580 400 562.5 412.5 Q 545 425 532.5 442.5 Q 520 460 500.0 455.0
+Q 480 450 462.5 465.0 Q 445 480 422.5 475.0 Q 400 470 380.0 480.0 Q 360 490 337.5 485.0
+Q 315 480 292.5 482.5 Q 270 485 250.0 475.0 Q 230 465 207.5 467.5 Q 185 470 165.0 457.5
+Q 145 445 122.5 447.5 Q 100 450 85.0 432.5 Q 70 415 52.5 417.5 Q 35 420 27.5 402.5
+Q 20 385 5.0 372.5 Q -10 360 2.5 345.0 Q 15 330 0.0 315.0 Q -15 300 5.0 285.0
+Q 25 270 15.0 252.5 Q 5 235 20.0 217.5 Q 35 200 25.0 182.5 Q 15 165 32.5 155.0
+Q 50 145 55.0 125.0 Q 60 105 77.5 102.5 Q 95 100 105.0 82.5 Q 115 65 135.0 67.5
+Q 155 70 167.5 55.0 Q 180 40 200.0 47.5 Q 220 55 245.0 50.0 Z"
+                fill="rgba(0,0,0,.03)" stroke="rgba(0,0,0,.15)" stroke-width="1.2"/>
+            </g>
+            <!-- 연결선 (대시) -->
+            <path d="M 294 143 Q 283 109, 275 87" fill="none" stroke="rgba(194,194,194,.45)" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#netArrow)"/>
+            <path d="M 350 159 Q 374 140, 399 123" fill="none" stroke="rgba(194,194,194,.45)" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#netArrow)"/>
+            <path d="M 260 187 Q 185 182, 113 179" fill="none" stroke="rgba(196,196,196,.42)" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#netArrow)"/>
+            <path d="M 273 224 Q 232 259, 192 299" fill="none" stroke="rgba(198,198,198,.4)" stroke-width="1.6" stroke-dasharray="5 5" marker-end="url(#netArrow)"/>
+            <!-- 위성 노드 카드 -->
+            <g>
+              <rect x="215" y="29" width="100" height="58" rx="14" fill="#111111"/>
+              <text x="264" y="56" text-anchor="middle" font-size="22" fill="#ffffff" font-family="Pretendard,sans-serif" font-weight="700">서울</text>
+              <text x="264" y="78" text-anchor="middle" font-size="16" fill="rgba(255,255,255,.55)" font-family="Pretendard,sans-serif" font-weight="400">도심</text>
+            </g>
+            <g>
+              <rect x="387" y="65" width="100" height="58" rx="14" fill="#111111"/>
+              <text x="436" y="92" text-anchor="middle" font-size="22" fill="#ffffff" font-family="Pretendard,sans-serif" font-weight="700">경기</text>
+              <text x="436" y="114" text-anchor="middle" font-size="16" fill="rgba(255,255,255,.55)" font-family="Pretendard,sans-serif" font-weight="400">동북부</text>
+            </g>
+            <g>
+              <rect x="13" y="147" width="100" height="58" rx="14" fill="#111111"/>
+              <text x="62" y="174" text-anchor="middle" font-size="22" fill="#ffffff" font-family="Pretendard,sans-serif" font-weight="700">인천</text>
+              <text x="62" y="196" text-anchor="middle" font-size="16" fill="rgba(255,255,255,.55)" font-family="Pretendard,sans-serif" font-weight="400">서부</text>
+            </g>
+            <g>
+              <rect x="111" y="299" width="100" height="58" rx="14" fill="#111111"/>
+              <text x="160" y="326" text-anchor="middle" font-size="22" fill="#ffffff" font-family="Pretendard,sans-serif" font-weight="700">평택</text>
+              <text x="160" y="348" text-anchor="middle" font-size="16" fill="rgba(255,255,255,.55)" font-family="Pretendard,sans-serif" font-weight="400">남서부</text>
+            </g>
+            <!-- 위성 연결점 -->
+            <circle cx="275" cy="87" r="4" fill="rgba(162,162,162,.85)"/>
+            <circle cx="399" cy="123" r="4" fill="rgba(162,162,162,.85)"/>
+            <circle cx="113" cy="179" r="4" fill="rgba(162,162,162,.85)"/>
+            <circle cx="192" cy="299" r="4" fill="rgba(162,162,162,.85)"/>
+            <!-- 용인 거점 중앙 -->
+            <circle cx="310" cy="190" r="58" fill="none" stroke="rgba(206,206,206,.3)" stroke-width="1" stroke-dasharray="2 4"/>
+            <circle cx="310" cy="190" r="50" fill="none" stroke="rgba(186,186,186,.55)" stroke-width="2">
+              <animate attributeName="r" values="50;66;50" dur="2.6s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values=".55;0;.55" dur="2.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="310" cy="190" r="44" fill="#0a0a0a" stroke="rgba(158,158,158,.9)" stroke-width="2.5"/>
+            <circle cx="310" cy="190" r="36" fill="none" stroke="rgba(210,210,210,.25)" stroke-width="1"/>
+            <text x="310" y="187" text-anchor="middle" font-size="21" fill="#ffffff" font-family="Pretendard,sans-serif" font-weight="800">용인</text>
+            <text x="310" y="207" text-anchor="middle" font-size="15" fill="rgba(162,162,162,.85)" font-family="Pretendard,sans-serif" font-weight="600" letter-spacing="0.5">거점</text>
+            <!-- 흐르는 점 애니메이션 -->
+            <circle r="3" fill="rgba(154,154,154,.95)">
+              <animateMotion dur="1.8s" repeatCount="indefinite" path="M 294 143 Q 283 109, 275 87"/>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="1.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="rgba(154,154,154,.95)">
+              <animateMotion dur="1.8s" begin="0.35s" repeatCount="indefinite" path="M 350 159 Q 374 140, 399 123"/>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="1.8s" begin="0.35s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="rgba(154,154,154,.95)">
+              <animateMotion dur="1.8s" begin="0.7s" repeatCount="indefinite" path="M 260 187 Q 185 182, 113 179"/>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="1.8s" begin="0.7s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="3" fill="rgba(154,154,154,.95)">
+              <animateMotion dur="1.8s" begin="1.05s" repeatCount="indefinite" path="M 273 224 Q 232 259, 192 299"/>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="1.8s" begin="1.05s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+        <p class="hub-footnote">※ 표기된 위치는 대응 가능한 운영 거점 구조를 개략적으로 나타낸 것입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 5. CTA (fade-up + 배경 slow drift, 밝은 차콜 그라데이션) ══════════ -->
+<section class="section charcoal-warm cta-drift" data-nav-theme="dark">
+  <div class="wrap reveal" style="text-align:center;">
+    <h2>공급 기준을 확인하고,<br /><span style="color:#a8c4a2;">실행 가능한 운영 구조</span>를 제안합니다.</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:28px;">
+      <a href="partnership.html" class="btn btn-white">파트너십</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer" class="footer"></div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
