@@ -114,10 +114,16 @@
       if (!v) return;
       const dSrc = v.getAttribute('data-src-desktop');
       const mSrc = v.getAttribute('data-src-mobile');
-      if (!dSrc && !mSrc) return;
+      // data-src 없이 src 직접 지정된 경우에도 play() 보장
+      if (!dSrc && !mSrc) {
+        v.load();
+        const p0 = v.play();
+        if (p0 && p0.catch) p0.catch(function () {});
+        return;
+      }
       const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
       const chosen = isMobile ? (mSrc || dSrc) : (dSrc || mSrc);
-      v.setAttribute('preload', isMobile ? 'metadata' : 'auto');
+      v.setAttribute('preload', 'auto');
       v.setAttribute('src', chosen);
       v.load();
       const p = v.play();
