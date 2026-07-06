@@ -264,7 +264,7 @@ h1,h2{text-wrap:balance;}
   .mobile-toggle{display:flex;position:relative;}
   .hero-content,.sub-hero .hero-content{padding-left:22px;padding-right:22px;}
   .section{padding:76px 0;min-height:auto;}
-  .impact{min-height:auto;}
+  .impact{min-height:100vh;}
   .hub,.split,.criteria-panel{grid-template-columns:1fr;gap:30px;}
   .numbers-grid{grid-template-columns:repeat(2,1fr);}
   .numbers-card{border-left:none;padding-left:0;border-bottom:1px solid var(--line-dark);padding-bottom:18px;}
@@ -454,6 +454,7 @@ h1,h2{text-wrap:balance;}
 }
 @media(max-width:768px){
   .partnership-video-hero{height:100vh;min-height:100vh;}
+  .section.charcoal-warm{min-height:100vh;}
 }
 
 /* ── sec-timeflow 배경 영상 ── */
