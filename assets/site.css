@@ -453,7 +453,7 @@ h1,h2{text-wrap:balance;}
   .flow-panel,.numbers-panel{padding:36px 24px;}
 }
 @media(max-width:768px){
-  .partnership-video-hero{height:auto;min-height:70vh;}
+  .partnership-video-hero{height:100svh;min-height:100svh;}
 }
 
 /* ── sec-timeflow 배경 영상 ── */
