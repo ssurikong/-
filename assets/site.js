@@ -51,6 +51,14 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    // iOS Safari autoplay fallback: 첫 터치 시 음소거 영상 일괄 재생
+    document.addEventListener('touchstart', function iosPlay() {
+      document.querySelectorAll('video[muted]').forEach(function(v) {
+        v.play().catch(function(){});
+      });
+      document.removeEventListener('touchstart', iosPlay);
+    }, { once: true, passive: true });
+
     const headerSlot = document.getElementById('site-header');
     const footerSlot = document.getElementById('site-footer');
     if (headerSlot) headerSlot.innerHTML = HEADER_HTML;
@@ -114,12 +122,8 @@
       if (!v) return;
       const dSrc = v.getAttribute('data-src-desktop');
       const mSrc = v.getAttribute('data-src-mobile');
-      // data-src 없으면 autoplay 속성에 맡기고, play() 한 번만 보장
-      if (!dSrc && !mSrc) {
-        const p0 = v.play();
-        if (p0 && p0.catch) p0.catch(function () {});
-        return;
-      }
+      // data-src 없으면 autoplay 속성에 완전히 맡김 (iOS 호환)
+      if (!dSrc && !mSrc) { return; }
       const isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
       const chosen = isMobile ? (mSrc || dSrc) : (dSrc || mSrc);
       v.setAttribute('preload', 'auto');
@@ -284,7 +288,7 @@
     if(!va || !vb) return;
     var active = va, next = vb;
     function startVideo(v){ v.play().catch(function(){}); }
-    startVideo(active);
+    // autoplay 속성으로 시작 후 timeupdate 감지
     active.addEventListener('timeupdate', function onUpdate(){
       if(active.duration && active.currentTime >= active.duration - 1.8){
         active.removeEventListener('timeupdate', onUpdate);
