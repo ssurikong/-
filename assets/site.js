@@ -114,9 +114,8 @@
       if (!v) return;
       const dSrc = v.getAttribute('data-src-desktop');
       const mSrc = v.getAttribute('data-src-mobile');
-      // data-src 없이 src 직접 지정된 경우에도 play() 보장
+      // data-src 없으면 autoplay 속성에 맡기고, play() 한 번만 보장
       if (!dSrc && !mSrc) {
-        v.load();
         const p0 = v.play();
         if (p0 && p0.catch) p0.catch(function () {});
         return;
@@ -284,7 +283,7 @@
     var vb = document.querySelector('.tfv-b');
     if(!va || !vb) return;
     var active = va, next = vb;
-    function startVideo(v){ v.currentTime=0; v.play().catch(function(){}); }
+    function startVideo(v){ v.play().catch(function(){}); }
     startVideo(active);
     active.addEventListener('timeupdate', function onUpdate(){
       if(active.duration && active.currentTime >= active.duration - 1.8){
