@@ -8,20 +8,18 @@
   const HEADER_HTML = `
     <a href="index.html" class="brand"><img src="assets/images/logo.png" alt="SEED IT" class="brand-logo" /></a>
     <nav class="nav">
-      <a href="index.html" data-key="home">Home</a>
-      <a href="about.html" data-key="about">회사 소개</a>
-      <a href="operations.html" data-key="ops">운영역량·인프라</a>
-      <a href="partnership.html" data-key="partnership">파트너십</a>
+      <a href="index.html" data-key="home">홈</a>
+      <a href="operations.html" data-key="ops">운영 시스템</a>
+      <a href="case-studies.html" data-key="cases">운영 사례</a>
       <a href="contact.html" class="contact-link" data-key="contact">문의</a>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="메뉴 열기"><span></span></button>
   `;
 
   const MOBILE_HTML = `
-    <a href="index.html" data-key="home">Home</a>
-    <a href="about.html" data-key="about">회사 소개</a>
-    <a href="operations.html" data-key="ops">운영역량·인프라</a>
-    <a href="partnership.html" data-key="partnership">파트너십</a>
+    <a href="index.html" data-key="home">홈</a>
+    <a href="operations.html" data-key="ops">운영 시스템</a>
+    <a href="case-studies.html" data-key="cases">운영 사례</a>
     <a href="contact.html" data-key="contact">문의하기</a>
   `;
 
@@ -33,9 +31,10 @@
         <p style="margin-top:10px">031-321-2403 · contact@seed-it.co.kr</p>
       </div>
       <div class="footer-links">
-        <a href="index.html">Home</a>
+        <a href="index.html">홈</a>
         <a href="about.html">회사 소개</a>
-        <a href="operations.html">운영역량·인프라</a>
+        <a href="operations.html">운영 시스템</a>
+        <a href="case-studies.html">운영 사례</a>
         <a href="partnership.html">파트너십</a>
         <a href="contact.html">문의</a>
       </div>
@@ -44,9 +43,8 @@
 
   function currentKey() {
     const path = location.pathname.replace(/\/$/, '');
-    if (path.endsWith('about.html')) return 'about';
     if (path.endsWith('operations.html')) return 'ops';
-    if (path.endsWith('partnership.html')) return 'partnership';
+    if (path.endsWith('case-studies.html') || path.endsWith('case-studies-draft.html')) return 'cases';
     return 'home';
   }
 

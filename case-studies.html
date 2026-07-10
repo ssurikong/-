@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>운영 사례 — SEED IT</title>
+<meta name="description" content="0.8톤이 15톤이 된 것은 우연이 아닙니다. 클레임을 현장에서 다시 확인하고, 산지와 작업 기준을 계속 바꿔온 SEED IT의 운영 사례입니다." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+/* ══════════ 운영 사례 페이지 전용 (cs- 프리픽스, 기존 클래스와 충돌 없음) ══════════ */
+
+/* 공용 강조 */
+.cs-em{color:var(--sage);font-weight:800;}
+.cs-emd{color:var(--ink);font-weight:800;}
+.cs-thin{font-weight:300;}
+
+/* ── 1. Hero ── */
+#cs-hero{min-height:78vh;}
+/* 서울 야경 영상: 감성 배경으로만 죽지 않도록 색감 살리고, 하단만 텍스트 가독용으로 은은하게 */
+#cs-hero .hero-media{background:#0a0d14;}
+#cs-hero .hero-media::after{background:linear-gradient(to bottom,rgba(8,10,16,.22) 0%,rgba(8,10,16,0) 30%),linear-gradient(to top,rgba(8,10,16,.68),rgba(8,10,16,.14) 52%,rgba(8,10,16,0) 76%);z-index:1;}
+/* A/B 두 영상 겹쳐두고 루프 경계에서 디졸브(크로스페이드) — 컷 없이 부드럽게 */
+.cs-video-stage{position:absolute;inset:0;z-index:0;}
+.cs-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;}
+.cs-video.is-front{opacity:1;}
+#cs-hero h1{max-width:860px;line-height:1.24;}
+.cs-hero-num{color:#fff;font-weight:800;}
+.cs-keywords{display:flex;flex-wrap:wrap;gap:9px;}
+.cs-keyword{font-size:12px;font-weight:700;letter-spacing:.02em;color:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.32);padding:7px 15px;border-radius:999px;backdrop-filter:blur(2px);}
+
+/* ── 2. 결과 (성장 그래프 + 표) ── */
+#cs-result{padding:150px 0;min-height:auto;}
+.cs-bignum{font-family:"Inter",sans-serif;font-size:clamp(30px,4.4vw,50px);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink);margin-top:26px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.cs-bignum .cs-arrow{color:var(--sage);font-weight:600;}
+.cs-bignum .numbers-val{color:var(--ink);font-family:"Inter",sans-serif;font-size:inherit;font-weight:800;letter-spacing:inherit;}
+.cs-bignum small{font-size:.42em;font-weight:700;color:var(--muted);align-self:center;}
+.cs-growth-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 30px 22px;}
+.cs-growth-card .cs-cardlabel{font-family:"Inter",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:6px;}
+
+/* ── 운영 변화 요약 패널 (표 대체: 얇은 라인·여백 중심, 그래프 보조 데이터) ── */
+.cs-summary{margin:30px auto 0;max-width:520px;width:100%;}
+.cs-summary-title{font-family:"Inter",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;text-align:center;}
+.cs-summary-grid{border-top:1px solid var(--line);}
+.cs-summary-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:15px 4px;border-bottom:1px solid var(--line);}
+.cs-summary-label{font-size:13.5px;font-weight:600;color:var(--muted);}
+.cs-summary-val{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em;white-space:nowrap;}
+.cs-summary-val i{color:var(--sage);font-style:normal;font-weight:600;margin:0 5px;}
+/* 브릿지 문장 (구 전환 섹션 대체, 극도로 축소) */
+.cs-bridge{margin:44px auto 0;text-align:center;font-size:clamp(17px,1.9vw,21px);font-weight:700;line-height:1.72;color:var(--ink);word-break:keep-all;}
+
+/* ── 4. 클레임 대응 — 프로세스 카드(사진 없음, 단계별 설명 타임라인 + 상시 애니메이션) ── */
+#cs-claim{padding:150px 0;min-height:auto;}
+.cs-vs{display:flex;flex-direction:column;}
+.cs-vs-tag{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:28px;color:var(--olive);}
+/* 오프화이트 + 은은한 세이지 글로우, 좌측 세이지 라인만 얇게 (사진 배경 없음) */
+.cs-vs-seedit{position:relative;overflow:hidden;border:1px solid var(--line);border-left:2px solid var(--sage);border-radius:16px;padding:36px 38px 38px;background:radial-gradient(circle at 90% 22%,rgba(111,125,104,.10),transparent 36%),linear-gradient(135deg,#f7f7f3 0%,#eeeee8 100%);}
+/* 단일 타임라인: 각 단계에 고유 설명(우측 공간 활용, 중복 없음) */
+.cs-flow{position:relative;padding-left:30px;}
+.cs-flow-line{position:absolute;left:5px;top:14px;bottom:16px;width:1px;background:rgba(111,125,104,.22);}
+.cs-flow-line-fill{position:absolute;left:0;top:0;width:1px;height:0;background:var(--sage);transition:height 2.1s var(--ease);}
+.cs-flow.active .cs-flow-line-fill{height:100%;}
+/* 러너: 진입 후 계속 라인을 따라 내려오는 상시 모션 */
+.cs-flow-runner{position:absolute;left:1.5px;top:18px;width:9px;height:9px;border-radius:50%;background:var(--sage);box-shadow:0 0 8px rgba(111,125,104,.55);opacity:0;z-index:2;}
+.cs-flow.active .cs-flow-runner{animation:csRun 3.4s var(--ease) .5s infinite;}
+@keyframes csRun{0%{opacity:0;transform:translateY(0);}12%{opacity:.95;}82%{opacity:.95;}100%{opacity:0;transform:translateY(var(--run-dist,200px));}}
+.cs-flow-steps{list-style:none;margin:0;padding:0;}
+.cs-flow-steps li{position:relative;display:grid;grid-template-columns:minmax(120px,168px) 1fr;gap:22px;align-items:baseline;padding:13px 0;opacity:0;transform:translateY(10px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i) * 200ms);}
+.cs-flow.active .cs-flow-steps li{opacity:1;transform:none;}
+.cs-flow-steps li .cs-flow-dot{position:absolute;left:-30px;top:18px;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--sage);}
+.cs-step-t{font-size:15.5px;font-weight:800;color:var(--ink);}
+.cs-step-d{font-size:13px;font-weight:500;color:var(--muted);line-height:1.6;word-break:keep-all;}
+.cs-flow-steps li.is-last .cs-step-t{color:var(--olive);}
+.cs-flow-steps li.is-last .cs-flow-dot{background:var(--sage);}
+/* 끝점: 상시 은은한 강조 펄스 */
+.cs-flow.active .cs-flow-steps li.is-last .cs-flow-dot{animation:csPulseDot 2.6s var(--ease) infinite;}
+@keyframes csPulseDot{0%,100%{box-shadow:0 0 0 0 rgba(111,125,104,.32);}50%{box-shadow:0 0 0 7px rgba(111,125,104,0);}}
+@media(max-width:560px){
+  .cs-flow-steps li{grid-template-columns:1fr;gap:3px;}
+}
+
+/* ── 5. 산지 ── */
+#cs-origin{min-height:auto;padding:150px 0;}
+#cs-origin .split{gap:60px;align-items:stretch;}
+#cs-origin .split-media{min-height:520px;border-radius:var(--radius);}
+#cs-origin .split-media img{filter:contrast(1.05) saturate(1.04);}
+.cs-origin-badge{position:absolute;left:20px;bottom:20px;z-index:2;background:rgba(20,21,17,.72);color:#fff;font-size:12px;font-weight:700;letter-spacing:.01em;padding:10px 16px;border-radius:999px;backdrop-filter:blur(4px);}
+.cs-origin-list{list-style:none;margin:28px 0 0;padding:0;}
+.cs-origin-list li{position:relative;padding:16px 0 16px 26px;border-bottom:1px solid var(--line);font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.6;word-break:keep-all;}
+.cs-origin-list li:last-child{border-bottom:none;}
+.cs-origin-list li::before{content:"";position:absolute;left:0;top:24px;width:11px;height:1.5px;background:var(--sage);}
+.cs-origin-list li b{color:var(--olive);font-weight:800;}
+.cs-origin-cap{margin-top:20px;font-size:13.5px;color:var(--muted);}
+
+/* ── 6. 신뢰 연결 + CTA ── */
+#cs-trust{padding:150px 0 130px;min-height:auto;}
+.cs-twoblock{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px;}
+.cs-block{border:1px solid var(--line);border-radius:var(--radius);padding:38px 36px;background:#fff;display:flex;flex-direction:column;}
+.cs-block .cs-block-tag{font-family:"Inter",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;}
+.cs-block h3{font-size:clamp(21px,2.4vw,26px);font-weight:800;letter-spacing:-.01em;color:var(--ink);line-height:1.32;margin-bottom:16px;word-break:keep-all;}
+.cs-block p{font-size:14.5px;color:var(--muted);line-height:1.8;word-break:keep-all;}
+.cs-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
+.cs-chip{font-size:12.5px;font-weight:700;color:var(--ink);border:1px solid var(--line);background:var(--paper);padding:9px 15px;border-radius:999px;}
+.cs-miniflow{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px;}
+.cs-miniflow span{font-size:13px;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:9px 14px;border-radius:10px;}
+.cs-miniflow i{color:var(--sage);font-style:normal;font-weight:700;}
+.cs-block-note{margin-top:auto;padding-top:22px;font-size:14px;font-weight:800;color:var(--olive);}
+
+/* 인과 체인 */
+.cs-chain{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;gap:0;margin:64px auto 0;max-width:900px;}
+.cs-chain-node{flex:1;min-width:140px;text-align:center;padding:22px 14px;position:relative;}
+.cs-chain-node .cs-chain-k{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--sage);text-transform:uppercase;margin-bottom:8px;}
+.cs-chain-node .cs-chain-t{font-size:17px;font-weight:800;color:var(--ink);word-break:keep-all;}
+.cs-chain-node:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:50%;transform:translateY(-50%);color:var(--sage);font-size:18px;font-weight:700;}
+.cs-chain-node:last-child .cs-chain-t{color:var(--olive);}
+.cs-conclusion{max-width:660px;margin:56px auto 0;text-align:center;}
+.cs-conclusion-lead{font-size:clamp(19px,2.1vw,24px);font-weight:800;line-height:1.55;letter-spacing:-.01em;color:var(--ink);word-break:keep-all;}
+.cs-conclusion-sub{margin-top:18px;font-size:15.5px;font-weight:500;line-height:1.85;color:var(--muted);word-break:keep-all;}
+.cs-conclusion-sub .cs-em{font-weight:800;}
+
+@media(max-width:860px){
+  .cs-twoblock{grid-template-columns:1fr;}
+  #cs-origin .split-media{min-height:340px;}
+  .cs-chain{gap:14px;}
+  .cs-chain-node{flex:1 1 40%;min-width:120px;border:1px solid var(--line);border-radius:12px;}
+  .cs-chain-node:not(:last-child)::after{display:none;}
+}
+@media(max-width:560px){
+  #cs-result,#cs-claim,#cs-origin,#cs-trust{padding:88px 0;}
+  #cs-turn{padding:100px 0;}
+}
+/* ── 본문 h2 크기: 히어로 h1 제외, 섹션 h2만 약 8~10% 축소 ── */
+#cs-result h2,
+#cs-claim h2,
+#cs-origin h2,
+#cs-trust h2{font-size:clamp(31px,3.2vw,46px);line-height:1.32;letter-spacing:-.02em;}
+</style>
+</head>
+<body>
+
+<div id="site-header" class="site-header"></div>
+<div class="mobile-panel" id="mobilePanel"></div>
+
+<!-- ══════════ 1. HERO — 결과를 먼저 ══════════ -->
+<section class="sub-hero" id="cs-hero" data-nav-theme="dark">
+  <div class="hero-media">
+    <!-- 서울 야경·차량 흐름 영상(도시 납품·수도권 공급망·저녁 출고 맥락). 파트너십 히어로와 동일 자산 재사용.
+         A/B 두 개를 겹쳐 루프 경계에서 디졸브(크로스페이드)로 컷 제거 -->
+    <div class="cs-video-stage">
+      <video id="csHeroA" class="cs-video is-front" autoplay muted playsinline preload="auto">
+        <source src="assets/videos/partnership-hero.mp4" type="video/mp4" />
+      </video>
+      <video id="csHeroB" class="cs-video" muted playsinline preload="auto">
+        <source src="assets/videos/partnership-hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">Operations Story</p>
+    <h1>
+      <span class="ln"><span class="cs-hero-num">0.8톤</span>이</span>
+      <span class="ln"><span class="cs-hero-num">15톤</span>이 되기까지.</span>
+    </h1>
+    <p class="hero-copy">도시의 납품 시간은 기다려주지 않습니다.<br />작은 발주와 반복되는 문제를 하나씩 정리하며<br />SEED IT의 운영 기준은 만들어졌습니다.</p>
+    <div class="hero-actions cs-keywords">
+      <span class="cs-keyword">발주</span>
+      <span class="cs-keyword">품질</span>
+      <span class="cs-keyword">클레임</span>
+      <span class="cs-keyword">산지</span>
+      <span class="cs-keyword">출고</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 2. 결과 — 성장은 숫자로 짧게 ══════════ -->
+<section class="section" id="cs-result" data-nav-theme="light">
+  <div class="wrap">
+    <div class="flow-content-grid">
+      <!-- 왼쪽: 텍스트 + 큰 숫자 -->
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--muted);">Result</p>
+        <h2><span class="cs-em">성장</span><span class="cs-thin">은</span><br /><span class="cs-thin">결과였습니다.</span></h2>
+        <p class="section-sub" style="margin-top:16px;">일 운영 물량은 크게 늘었습니다.<br />하지만 숫자보다 중요한 것은,<br />그 성장을 만든 운영 방식입니다.</p>
+      </div>
+      <!-- 오른쪽: 성장 곡선 그래프 (시작점·도착점 숫자만, 흐름만 깔끔하게) -->
+      <div class="reveal d1">
+        <div class="cs-growth-card growth-chart" id="csGrowth">
+          <p class="cs-cardlabel">Growth Trajectory</p>
+          <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+            <!-- baseline -->
+            <line x1="46" y1="250" x2="516" y2="250" stroke="var(--line)" stroke-width="1"/>
+            <!-- area + line -->
+            <path d="M 80 232 C 180 226, 236 210, 288 156 C 336 106, 392 74, 484 56 L 484 250 L 80 250 Z" fill="var(--sage)" opacity="0.09"/>
+            <path class="chart-line" d="M 80 232 C 180 226, 236 210, 288 156 C 336 106, 392 74, 484 56" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+            <!-- 시작점 2024 (숫자만) -->
+            <circle cx="80" cy="232" r="6" fill="#fff" stroke="var(--ink)" stroke-width="2"/>
+            <text x="80" y="284" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="13" font-weight="700" fill="var(--muted)">2024</text>
+            <text x="80" y="216" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="var(--muted)">0.8t</text>
+            <!-- 도착점 2026 (숫자만) -->
+            <circle cx="484" cy="56" r="9" fill="var(--sage)" stroke="var(--ink)" stroke-width="2">
+              <animate attributeName="r" values="9;13;9" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            <text x="484" y="284" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="13" font-weight="700" fill="var(--ink)">2026</text>
+            <text x="484" y="38" text-anchor="middle" font-family="Inter,sans-serif" font-size="24" font-weight="800" fill="var(--ink)">약 15t</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- 운영 변화 요약: 일반 표가 아니라 얇은 라인 패널(그래프의 보조 데이터) -->
+    <div class="cs-summary reveal d1">
+      <p class="cs-summary-title">운영 변화 요약</p>
+      <div class="cs-summary-grid">
+        <div class="cs-summary-row"><span class="cs-summary-label">일 운영 물량</span><span class="cs-summary-val">0.8t <i>→</i> 약 15t</span></div>
+        <div class="cs-summary-row"><span class="cs-summary-label">운영 인원</span><span class="cs-summary-val">2명 <i>→</i> 14명</span></div>
+        <div class="cs-summary-row"><span class="cs-summary-label">월 최대 운영</span><span class="cs-summary-val">26t <i>→</i> 360t</span></div>
+        <div class="cs-summary-row"><span class="cs-summary-label">전처리 물량</span><span class="cs-summary-val">없음 <i>→</i> 약 10t</span></div>
+        <div class="cs-summary-row"><span class="cs-summary-label">주요 품목</span><span class="cs-summary-val">대파 <i>→</i> 다품목</span></div>
+      </div>
+    </div>
+
+    <!-- 브릿지 문장: 그래프의 의미를 그래프 밖에서 설명 (성장의 이유는 이후 섹션에서 전개) -->
+    <p class="cs-bridge reveal">숫자는 결과입니다.<br />그 과정에는 품질·산지·출고 기준을 다시 세운 시간이 있었습니다.</p>
+  </div>
+</section>
+
+<!-- ══════════ 3. 핵심 — 클레임이 발생하면 현장으로 ══════════ -->
+<section class="section" id="cs-claim" data-nav-theme="light">
+  <div class="wrap">
+    <div class="flow-content-grid">
+      <!-- 왼쪽: 제목 -->
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--muted);">Claim Response</p>
+        <h2><span class="cs-em">클레임</span><span class="cs-thin">이 발생하면,</span><br /><span class="cs-em">현장</span><span class="cs-thin">에서 다시 시작했습니다.</span></h2>
+        <p class="section-sub" style="margin-top:16px;">대체품만 보내고 끝내지 않았습니다.<br />담당자가 사업장을 방문해 문제 원물을 회수하고,<br />원인과 조치 내용을 직접 설명했습니다.</p>
+      </div>
+      <!-- 오른쪽: SEED IT 대응 프로세스 카드 (좌 타임라인 + 우 요약 키워드) -->
+      <div class="cs-vs reveal d1">
+        <div class="cs-vs-seedit">
+          <p class="cs-vs-tag">SEED IT 대응</p>
+          <div class="cs-flow" id="csFlow">
+            <span class="cs-flow-line"><span class="cs-flow-line-fill"></span></span>
+            <span class="cs-flow-runner"></span>
+            <ul class="cs-flow-steps">
+              <li style="--i:0"><span class="cs-flow-dot"></span><span class="cs-step-t">현장 방문</span><span class="cs-step-d">담당자가 클레임 사업장으로 직접</span></li>
+              <li style="--i:1"><span class="cs-flow-dot"></span><span class="cs-step-t">문제 원물 회수</span><span class="cs-step-d">문제가 된 원물을 직접 수거</span></li>
+              <li style="--i:2"><span class="cs-flow-dot"></span><span class="cs-step-t">원인 설명</span><span class="cs-step-d">품질·작업 원인을 구분해 설명</span></li>
+              <li style="--i:3"><span class="cs-flow-dot"></span><span class="cs-step-t">재발방지 대책 전달</span><span class="cs-step-d">조치와 재발방지 대책을 직접 전달</span></li>
+              <li style="--i:4" class="is-last"><span class="cs-flow-dot"></span><span class="cs-step-t">다음 출고 기준 반영</span><span class="cs-step-d">같은 문제가 없도록 출고 기준 갱신</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 5. 산지까지 거슬러 올라가기 ══════════ -->
+<section class="section soft" id="cs-origin" data-nav-theme="light">
+  <div class="wrap">
+    <div class="split">
+      <!-- 왼쪽: 텍스트 + 리스트 -->
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--muted);">Back to the Origin</p>
+        <h2><span class="cs-thin">같은 지역이라도,</span><br /><span class="cs-em">밭마다</span><span class="cs-thin"> 결과는 달랐습니다.</span></h2>
+        <p class="section-sub" style="margin-top:16px;">같은 품목, 같은 지역이라도 어떤 농가가 어떤 밭에서 경작했는지에 따라 입고 품질과 작업 수율은 달라졌습니다.<br /><br />SEED IT은 이 차이를 데이터로 남겨 다음 계약과 수확 기준에 반영했습니다.</p>
+        <ul class="cs-origin-list">
+          <li title="입고 품질 문제가 반복되면 산지에 직접 요청하거나 방문">산지 요청·방문</li>
+          <li title="품질이 안정적인 농가·밭은 확대, 불안정한 곳은 교체·변경">농가·밭 기준 조정</li>
+          <li title="농가·밭별 품질 데이터를 다음 계약과 수확 시기 판단에 활용">계약·수확 기준 반영</li>
+        </ul>
+      </div>
+      <!-- 오른쪽: 대형 산지 이미지 -->
+      <div class="split-media reveal d1">
+        <img src="assets/images/homepage/about-field.jpg" alt="대파 산지 현장 — 농가와 밭 단위로 품질을 직접 확인한다" />
+        <span class="cs-origin-badge">농가 · 밭 단위 품질 데이터</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 6. 밀착관리 · 당일 발송 — 신뢰로 연결 ══════════ -->
+<section class="section" id="cs-trust" data-nav-theme="light">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;max-width:680px;margin:0 auto;">
+      <p class="eyebrow" style="color:var(--muted);justify-content:center;">From Response to Trust</p>
+      <h2><span class="cs-thin">대응은 품질 개선으로,</span><br /><span class="cs-thin">품질은</span> <span class="cs-em">신뢰</span><span class="cs-thin">로 이어졌습니다.</span></h2>
+    </div>
+
+    <div class="cs-twoblock stagger">
+      <!-- Block A -->
+      <div class="cs-block" style="--i:0">
+        <p class="cs-block-tag">1개월 밀착관리</p>
+        <h3>문제 거래처는<br />한 달 더 가까이 봤습니다.</h3>
+        <p>클레임이 발생한 사업장은 1개월간 담당자를 지정하고, 출하 책임을 분명히 했습니다. 같은 문제가 반복되지 않도록 매일 관리했습니다.</p>
+        <div class="cs-chips">
+          <span class="cs-chip">담당자 지정</span>
+          <span class="cs-chip">매일 사진 기록</span>
+          <span class="cs-chip">출하 책임 전담</span>
+        </div>
+      </div>
+      <!-- Block B -->
+      <div class="cs-block" style="--i:1">
+        <p class="cs-block-tag">당일 입고 · 당일 발송</p>
+        <h3>재고를<br />남기지 않았습니다.</h3>
+        <p>하루 포장 재고가 남지 않도록 시간 단위로 발주량을 확인했습니다. 필요한 만큼만 선별·포장하고, 당일 입고된 원물이 당일 출고되도록 운영했습니다.</p>
+        <div class="cs-miniflow">
+          <span>시간 단위 발주 확인</span><i>→</i>
+          <span>최소량 선별·포장</span><i>→</i>
+          <span>당일 출고</span>
+        </div>
+        <p class="cs-block-note">재고 리스크 최소화</p>
+      </div>
+    </div>
+
+    <!-- 인과 체인 -->
+    <div class="cs-chain reveal">
+      <div class="cs-chain-node"><p class="cs-chain-k">Response</p><p class="cs-chain-t">대응</p></div>
+      <div class="cs-chain-node"><p class="cs-chain-k">Quality</p><p class="cs-chain-t">품질 개선</p></div>
+      <div class="cs-chain-node"><p class="cs-chain-k">Trust</p><p class="cs-chain-t">신뢰</p></div>
+      <div class="cs-chain-node"><p class="cs-chain-k">Together</p><p class="cs-chain-t">동반 성장</p></div>
+    </div>
+
+    <div class="cs-conclusion reveal d1">
+      <p class="cs-conclusion-lead"><span class="cs-thin">더 안정적인</span> <span class="cs-em">품질</span><span class="cs-thin">이,</span><br /><span class="cs-thin">더 큰</span> <span class="cs-em">발주</span><span class="cs-thin">로 이어졌습니다.</span></p>
+      <p class="cs-conclusion-sub">그 신뢰가 반복되며<br />SEED IT과 고객사의 <span style="font-weight:800;">동반 성장</span>으로 이어졌습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="section charcoal-warm cta-drift" data-nav-theme="dark">
+  <div class="wrap reveal" style="text-align:center;">
+    <p class="eyebrow" style="justify-content:center;">Next</p>
+    <h2><span style="font-weight:300;">기준은 현장에서,</span><br />운영은 시스템으로.</h2>
+    <div class="hero-actions" style="justify-content:center;margin-top:28px;">
+      <a href="operations.html" class="btn btn-ghost">운영 시스템 보기</a>
+      <a href="contact.html" class="btn btn-white">문의하기</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer" class="footer"></div>
+
+<script src="assets/site.js"></script>
+<script>
+/* 성장 곡선: 진입 시 선이 그려짐 (index.html과 동일 패턴) */
+(function(){
+  var chart = document.getElementById('csGrowth');
+  if(!chart) return;
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      chart.classList.add('active');
+    });
+  },{threshold:0.3}).observe(chart);
+})();
+
+/* 클레임 SEED IT 대응: 라인 draw + 단계 순차 등장 + 세이지 러너 이동 */
+(function(){
+  var flow = document.getElementById('csFlow');
+  if(!flow) return;
+  var runner = flow.querySelector('.cs-flow-runner');
+  var steps = flow.querySelectorAll('.cs-flow-steps li');
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      // 러너 이동 거리 = 첫 도트 ~ 마지막 도트 중심 차이 (레이아웃 기준으로 계산)
+      if(runner && steps.length > 1){
+        var first = steps[0].querySelector('.cs-flow-dot').getBoundingClientRect();
+        var last = steps[steps.length-1].querySelector('.cs-flow-dot').getBoundingClientRect();
+        runner.style.setProperty('--run-dist', Math.round(last.top - first.top) + 'px');
+      }
+      flow.classList.add('active');
+    });
+  },{threshold:0.35}).observe(flow);
+})();
+
+/* 히어로 서울 야경 영상: A/B 크로스페이드로 루프 경계 디졸브 (site.js .tfv-a/.tfv-b 패턴 응용) */
+(function(){
+  var a = document.getElementById('csHeroA'), b = document.getElementById('csHeroB');
+  if(!a || !b) return;
+  var FADE = 1.2; // 종료 FADE초 전부터 다음 영상으로 디졸브 (CSS transition과 일치)
+  var active = a, idle = b;
+  function play(v){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+  function onTick(){
+    if(!active.duration || isNaN(active.duration)) return;
+    if(active.currentTime >= active.duration - FADE){
+      active.removeEventListener('timeupdate', onTick);
+      try{ idle.currentTime = 0; }catch(e){}
+      play(idle);
+      idle.classList.add('is-front');
+      active.classList.remove('is-front');
+      var prev = active; active = idle; idle = prev;
+      active.addEventListener('timeupdate', onTick);
+    }
+  }
+  a.addEventListener('timeupdate', onTick);
+  play(a);
+})();
+</script>
+</body>
+</html>
